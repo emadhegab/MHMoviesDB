@@ -10,20 +10,41 @@ import SwiftUI
 struct PopularMoviesView: View {
 
     @ObservedObject var viewModel = ViewModel()
-
+ 
     var body: some View {
         VStack {
-            Text("\(viewModel.movies?.results.count ?? 0)")
-            Text("Hello, World!")
-                .onTapGesture {
-                    viewModel.getMovies()
+
+            HStack {
+                Text("Popular")
+                    .bold()
+                    .padding()
+                Spacer()
+                Image(systemName: "arrow.forward")
+                    .font(Font.title.weight(.medium))
+                    .padding()
+
+            }
+            ScrollView(.horizontal) {
+                if let movies = viewModel.movies {
+                    HStack {
+                        ForEach(movies.results, id: \.id) { movie in
+                            MovieCell(movie: movie)
+                                .frame(width: 200, height: 300, alignment: .center)
+                        }
+                    }
                 }
+            }
+            .onAppear {
+                viewModel.getMovies()
+            }
         }
     }
 }
 
 struct PopularMovies_Previews: PreviewProvider {
     static var previews: some View {
-        PopularMoviesView()
+        let viewModel = PopularMoviesView.ViewModel()
+
+        return PopularMoviesView(viewModel: viewModel)
     }
 }

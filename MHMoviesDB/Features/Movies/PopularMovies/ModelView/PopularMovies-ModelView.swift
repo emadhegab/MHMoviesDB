@@ -3,6 +3,7 @@ import SwiftUI
 import Combine
 
 extension PopularMoviesView {
+
     class ViewModel: ObservableObject {
 
         @Published var movies: PopularMovie? = nil

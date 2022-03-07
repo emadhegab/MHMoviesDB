@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		A536911827D259F000F8199C /* MHMoviesDBApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A536911727D259F000F8199C /* MHMoviesDBApp.swift */; };
-		A536911A27D259F000F8199C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A536911927D259F000F8199C /* ContentView.swift */; };
 		A536911C27D259F200F8199C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A536911B27D259F200F8199C /* Assets.xcassets */; };
 		A536911F27D259F200F8199C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A536911E27D259F200F8199C /* Preview Assets.xcassets */; };
 		A536912D27D5FF5800F8199C /* PopularMoviesRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A536912C27D5FF5800F8199C /* PopularMoviesRequest.swift */; };
@@ -19,12 +18,12 @@
 		A536913927D6038F00F8199C /* PopularMoviesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A536913827D6038F00F8199C /* PopularMoviesView.swift */; };
 		A536913C27D6168800F8199C /* ServicesContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A536913B27D6168800F8199C /* ServicesContainer.swift */; };
 		A536913F27D6173E00F8199C /* PopularMovies-ModelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A536913E27D6173E00F8199C /* PopularMovies-ModelView.swift */; };
+		A5824D3927D62DC300346DE9 /* MovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5824D3827D62DC300346DE9 /* MovieCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		A536911427D259F000F8199C /* MHMoviesDB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MHMoviesDB.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A536911727D259F000F8199C /* MHMoviesDBApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MHMoviesDBApp.swift; sourceTree = "<group>"; };
-		A536911927D259F000F8199C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		A536911B27D259F200F8199C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A536911E27D259F200F8199C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		A536912627D25DF700F8199C /* AppConfigurations */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = AppConfigurations; path = Packages/AppConfigurations; sourceTree = "<group>"; };
@@ -35,6 +34,7 @@
 		A536913827D6038F00F8199C /* PopularMoviesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularMoviesView.swift; sourceTree = "<group>"; };
 		A536913B27D6168800F8199C /* ServicesContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesContainer.swift; sourceTree = "<group>"; };
 		A536913E27D6173E00F8199C /* PopularMovies-ModelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PopularMovies-ModelView.swift"; sourceTree = "<group>"; };
+		A5824D3827D62DC300346DE9 /* MovieCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,9 +71,8 @@
 		A536911627D259F000F8199C /* MHMoviesDB */ = {
 			isa = PBXGroup;
 			children = (
-				A536913A27D6167400F8199C /* DependencyInjection */,
 				A536911727D259F000F8199C /* MHMoviesDBApp.swift */,
-				A536911927D259F000F8199C /* ContentView.swift */,
+				A536913A27D6167400F8199C /* DependencyInjection */,
 				A536912727D25E1300F8199C /* Features */,
 				A536911B27D259F200F8199C /* Assets.xcassets */,
 				A536911D27D259F200F8199C /* Preview Content */,
@@ -109,6 +108,7 @@
 		A536912827D25E1D00F8199C /* Movies */ = {
 			isa = PBXGroup;
 			children = (
+				A5824D3727D62DB700346DE9 /* Common */,
 				A536912927D2655B00F8199C /* PopularMovies */,
 			);
 			path = Movies;
@@ -163,6 +163,14 @@
 				A536913E27D6173E00F8199C /* PopularMovies-ModelView.swift */,
 			);
 			path = ModelView;
+			sourceTree = "<group>";
+		};
+		A5824D3727D62DB700346DE9 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				A5824D3827D62DC300346DE9 /* MovieCell.swift */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -241,7 +249,7 @@
 			files = (
 				A536913C27D6168800F8199C /* ServicesContainer.swift in Sources */,
 				A536913427D6009300F8199C /* PopularMoviesServices.swift in Sources */,
-				A536911A27D259F000F8199C /* ContentView.swift in Sources */,
+				A5824D3927D62DC300346DE9 /* MovieCell.swift in Sources */,
 				A536913927D6038F00F8199C /* PopularMoviesView.swift in Sources */,
 				A536911827D259F000F8199C /* MHMoviesDBApp.swift in Sources */,
 				A536912D27D5FF5800F8199C /* PopularMoviesRequest.swift in Sources */,
@@ -384,7 +392,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -413,7 +421,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

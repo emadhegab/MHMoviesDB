@@ -1,5 +1,6 @@
     import Networking
 import Combine
+import Foundation
 
 protocol PopularMoviesSerivces {
     var movies: PopularMovie? { get }

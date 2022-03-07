@@ -10,7 +10,7 @@ public struct API<T: Decodable> {
             .dataTaskPublisher(for: request.urlRequest())
             .map { $0.data }
             .decode(type: T.self, decoder: JSONDecoder())
-            .print()
+            .receive(on: RunLoop.main)
             .eraseToAnyPublisher()
     }
 }
