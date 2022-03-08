@@ -3,7 +3,7 @@ import Foundation
 // MARK: - PopularMovie
 struct PopularMovie: Codable {
     let page: Int
-    let results: [Movie]
+    var results: [Movie]
     let totalPages, totalResults: Int
 
     enum CodingKeys: String, CodingKey {
@@ -25,6 +25,7 @@ struct Movie: Codable {
     let video: Bool
     let voteAverage: Double
     let voteCount: Int
+    var details: MovieDetails?
 
     enum CodingKeys: String, CodingKey {
         case adult

@@ -5,4 +5,8 @@ class ServicesContainer {
     func getPopularMoviesService() -> PopularMoviesSerivces {
         return PopularMoviesSerivcesImpl()
     }
+
+    func getMovieDetailsService() -> MovieDetailsSerivces {
+        return DetailsSerivcesImpl()
+    }
 }

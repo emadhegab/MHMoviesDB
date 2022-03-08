@@ -1,16 +1,14 @@
-    import Networking
+import Networking
 import Combine
 import Foundation
 
 protocol PopularMoviesSerivces {
-    var movies: PopularMovie? { get }
     func getPopularMovies() -> AnyPublisher<PopularMovie, Error>
 }
 
-class PopularMoviesSerivcesImpl: PopularMoviesSerivces, ObservableObject {
+class PopularMoviesSerivcesImpl: PopularMoviesSerivces {
 
     var cancellable: AnyCancellable? = nil
-    @Published var movies: PopularMovie? = nil
 
     func getPopularMovies() -> AnyPublisher<PopularMovie, Error> {
         let request = PopularMoviesRequest.getPopularMovies
