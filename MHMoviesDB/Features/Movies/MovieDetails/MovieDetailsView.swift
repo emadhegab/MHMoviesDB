@@ -8,21 +8,19 @@
 import SwiftUI
 
 struct MovieDetailsView: View {
-    let details: MovieDetails?
-    @Namespace var namespace
+    let details: MovieDetails
+    let namespace: Namespace.ID
+    let image: Image
 
     var body: some View {
         VStack {
-            AsyncImage(url: URL(string: "https://image.tmdb.org/t/p/original/\(details?.posterPath ?? "")")) { image in
-                image.resizable()
-            } placeholder: {
-                Image("default", bundle: .main)
-                    .tint(Color.red)
-            }
-            .matchedGeometryEffect(id: "poster", in: namespace)
+                image
+                .resizable()
+                .cornerRadius(20.0)
+                .matchedGeometryEffect(id: "poster\(details.id)", in: namespace)
             
             Spacer()
-            Text(details?.title ?? "")
+            Text(details.title)
                 .font(Font.title)
                 .fontWeight(.heavy)
 

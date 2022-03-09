@@ -25,18 +25,20 @@ struct PopularMoviesView: View {
                     Image(systemName: "arrow.forward")
                         .font(Font.title.weight(.medium))
                         .padding()
-                        .matchedGeometryEffect(id: "poster", in: namespace)
 
                 }
                 ScrollView(.horizontal) {
                     if let movies = viewModel.popularMovies {
                         HStack {
                             ForEach(movies.results, id: \.id) { movie in
-                                MovieCell(movie: movie)
-                                    .frame(width: 200, height: 300, alignment: .center)
+                                MovieCell(movie: movie, namespace: namespace, image: viewModel.imageDictionary["\(movie.id)"]!)
+                                    .padding(6)
+                                    .frame(width: 200, height: 300)
                                     .onTapGesture {
                                         selectedMovie = movie
-                                        showDetails.toggle()
+                                        withAnimation(.easeIn) {
+                                            showDetails.toggle()
+                                        }
                                     }
                             }
                         }
@@ -46,10 +48,12 @@ struct PopularMoviesView: View {
                     viewModel.getMovies()
                 }
             }
-            if showDetails, let movie = selectedMovie {
-                MovieDetailsView(details: movie.details, namespace: _namespace)
+            if showDetails, let movie = selectedMovie, let details = movie.details {
+                MovieDetailsView(details: details, namespace: namespace, image: viewModel.imageDictionary["\(movie.id)"]!)
                     .onTapGesture {
-                        showDetails.toggle()
+                        withAnimation(.easeOut) {
+                            showDetails.toggle()
+                        }
                     }
             }
         }

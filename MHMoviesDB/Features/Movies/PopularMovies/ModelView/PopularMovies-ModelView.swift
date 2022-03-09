@@ -9,7 +9,7 @@ extension PopularMoviesView {
         @Published var popularMovies: PopularMovie? = nil
         var popularMoviesCancellable: AnyCancellable? = nil
         var movieDetailsCancellables: Set<AnyCancellable> = []
-
+        var imageDictionary: [String: Image] = [:]
         var popularMoviesService = ServicesContainer.shared.getPopularMoviesService()
         let movieDetailsService = ServicesContainer.shared.getMovieDetailsService()
         func getMovies() {
@@ -18,7 +18,9 @@ extension PopularMoviesView {
 
                 } receiveValue: { movies in
                     self.popularMovies = movies
-
+                    movies.results.forEach {
+                        self.createImageDictionary(movie: $0)
+                    }
                    let _ = self.popularMovies?.results.forEach { popularMovie in
                         self.getMovieDetails(id: "\(popularMovie.id)")
                            .sink(receiveCompletion: { _ in
@@ -35,6 +37,14 @@ extension PopularMoviesView {
 
         func getMovieDetails(id: String) -> AnyPublisher<MovieDetails, Error> {
             movieDetailsService.getMovieDetails(id: id)
+        }
+
+        func createImageDictionary(movie: Movie)  {
+            if let url = URL(string: "https://image.tmdb.org/t/p/w500/\(movie.posterPath)"),
+               let data =  try? Data(contentsOf: url),
+               let uiimage = UIImage(data: data) {
+                   imageDictionary["\(movie.id)"] = Image(uiImage: uiimage)
+                }
         }
     }
 }
