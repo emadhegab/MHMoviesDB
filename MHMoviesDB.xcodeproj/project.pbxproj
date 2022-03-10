@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		A522483F27D9F944000693C2 /* DesignSystem in Frameworks */ = {isa = PBXBuildFile; productRef = A522483E27D9F944000693C2 /* DesignSystem */; };
+		A522484227DA1C96000693C2 /* CurvedSideRectangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A522484127DA1C96000693C2 /* CurvedSideRectangle.swift */; };
 		A536911827D259F000F8199C /* MHMoviesDBApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A536911727D259F000F8199C /* MHMoviesDBApp.swift */; };
 		A536911C27D259F200F8199C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A536911B27D259F200F8199C /* Assets.xcassets */; };
 		A536911F27D259F200F8199C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A536911E27D259F200F8199C /* Preview Assets.xcassets */; };
@@ -29,6 +30,7 @@
 /* Begin PBXFileReference section */
 		A522483C27D9F46D000693C2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		A522483D27D9F917000693C2 /* DesignSystem */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = DesignSystem; path = Packages/DesignSystem; sourceTree = "<group>"; };
+		A522484127DA1C96000693C2 /* CurvedSideRectangle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurvedSideRectangle.swift; sourceTree = "<group>"; };
 		A536911427D259F000F8199C /* MHMoviesDB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MHMoviesDB.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A536911727D259F000F8199C /* MHMoviesDBApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MHMoviesDBApp.swift; sourceTree = "<group>"; };
 		A536911B27D259F200F8199C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -70,6 +72,14 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		A522484027DA1C81000693C2 /* CommonViews */ = {
+			isa = PBXGroup;
+			children = (
+				A522484127DA1C96000693C2 /* CurvedSideRectangle.swift */,
+			);
+			path = CommonViews;
+			sourceTree = "<group>";
+		};
 		A536910B27D259F000F8199C = {
 			isa = PBXGroup;
 			children = (
@@ -93,6 +103,7 @@
 			children = (
 				A522483C27D9F46D000693C2 /* Info.plist */,
 				A536911727D259F000F8199C /* MHMoviesDBApp.swift */,
+				A522484027DA1C81000693C2 /* CommonViews */,
 				A536913A27D6167400F8199C /* DependencyInjection */,
 				A536912727D25E1300F8199C /* Features */,
 				A522483227D9F3A4000693C2 /* Resources */,
@@ -314,6 +325,7 @@
 				A536913927D6038F00F8199C /* PopularMoviesView.swift in Sources */,
 				A536911827D259F000F8199C /* MHMoviesDBApp.swift in Sources */,
 				A5824D4127D76DBC00346DE9 /* MovieDetailsRequest.swift in Sources */,
+				A522484227DA1C96000693C2 /* CurvedSideRectangle.swift in Sources */,
 				A536912D27D5FF5800F8199C /* PopularMoviesRequest.swift in Sources */,
 				A536913727D600D700F8199C /* PopularMovie.swift in Sources */,
 				A536913F27D6173E00F8199C /* PopularMovies-ModelView.swift in Sources */,
