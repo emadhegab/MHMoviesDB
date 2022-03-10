@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import DesignSystem
 
 struct PopularMoviesView: View {
     @Namespace var namespace
@@ -19,7 +20,7 @@ struct PopularMoviesView: View {
 
                 HStack {
                     Text("Popular")
-                        .bold()
+                        .font(Font.itemCaption)
                         .padding()
                     Spacer()
                     Image(systemName: "arrow.forward")

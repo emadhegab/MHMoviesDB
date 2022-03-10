@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A522483F27D9F944000693C2 /* DesignSystem in Frameworks */ = {isa = PBXBuildFile; productRef = A522483E27D9F944000693C2 /* DesignSystem */; };
 		A536911827D259F000F8199C /* MHMoviesDBApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A536911727D259F000F8199C /* MHMoviesDBApp.swift */; };
 		A536911C27D259F200F8199C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A536911B27D259F200F8199C /* Assets.xcassets */; };
 		A536911F27D259F200F8199C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A536911E27D259F200F8199C /* Preview Assets.xcassets */; };
@@ -26,6 +27,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A522483C27D9F46D000693C2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		A522483D27D9F917000693C2 /* DesignSystem */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = DesignSystem; path = Packages/DesignSystem; sourceTree = "<group>"; };
 		A536911427D259F000F8199C /* MHMoviesDB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MHMoviesDB.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A536911727D259F000F8199C /* MHMoviesDBApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MHMoviesDBApp.swift; sourceTree = "<group>"; };
 		A536911B27D259F200F8199C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -50,6 +53,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A522483F27D9F944000693C2 /* DesignSystem in Frameworks */,
 				A536913227D5FFCE00F8199C /* Networking in Frameworks */,
 				A536913027D5FFCE00F8199C /* AppConfigurations in Frameworks */,
 			);
@@ -58,6 +62,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A522483227D9F3A4000693C2 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				A536911B27D259F200F8199C /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		A536910B27D259F000F8199C = {
 			isa = PBXGroup;
 			children = (
@@ -79,10 +91,11 @@
 		A536911627D259F000F8199C /* MHMoviesDB */ = {
 			isa = PBXGroup;
 			children = (
+				A522483C27D9F46D000693C2 /* Info.plist */,
 				A536911727D259F000F8199C /* MHMoviesDBApp.swift */,
 				A536913A27D6167400F8199C /* DependencyInjection */,
 				A536912727D25E1300F8199C /* Features */,
-				A536911B27D259F200F8199C /* Assets.xcassets */,
+				A522483227D9F3A4000693C2 /* Resources */,
 				A536911D27D259F200F8199C /* Preview Content */,
 			);
 			path = MHMoviesDB;
@@ -101,6 +114,7 @@
 			children = (
 				A536912627D25DF700F8199C /* AppConfigurations */,
 				A536912B27D5F98400F8199C /* Networking */,
+				A522483D27D9F917000693C2 /* DesignSystem */,
 			);
 			name = Packages;
 			sourceTree = "<group>";
@@ -236,6 +250,7 @@
 			packageProductDependencies = (
 				A536912F27D5FFCE00F8199C /* AppConfigurations */,
 				A536913127D5FFCE00F8199C /* Networking */,
+				A522483E27D9F944000693C2 /* DesignSystem */,
 			);
 			productName = MHMoviesDB;
 			productReference = A536911427D259F000F8199C /* MHMoviesDB.app */;
@@ -435,6 +450,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"MHMoviesDB/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MHMoviesDB/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -464,6 +480,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"MHMoviesDB/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MHMoviesDB/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -507,6 +524,10 @@
 /* End XCConfigurationList section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		A522483E27D9F944000693C2 /* DesignSystem */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = DesignSystem;
+		};
 		A536912F27D5FFCE00F8199C /* AppConfigurations */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = AppConfigurations;

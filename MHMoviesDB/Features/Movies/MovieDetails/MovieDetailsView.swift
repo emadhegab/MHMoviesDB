@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import DesignSystem
 
 struct MovieDetailsView: View {
     let details: MovieDetails
@@ -14,15 +15,37 @@ struct MovieDetailsView: View {
 
     var body: some View {
         VStack {
-                image
-                .resizable()
-                .cornerRadius(20.0)
-                .matchedGeometryEffect(id: "poster\(details.id)", in: namespace)
-            
-            Spacer()
-            Text(details.title)
-                .font(Font.title)
-                .fontWeight(.heavy)
+
+            ZStack(alignment: .bottom){
+                GeometryReader { geo in
+                    image
+                        .resizable()
+                        .frame(width: geo.size.width, height: geo.size.height * 0.5,
+                               alignment: .center)
+                        .aspectRatio(contentMode: .fit)
+                        .matchedGeometryEffect(
+                            id: "poster\(details.id)", in: namespace)
+                        .ignoresSafeArea()
+                }
+
+                GeometryReader { geo in
+                    ZStack(alignment: .bottom) {
+                        Color.gray
+                            .frame(height: geo.size.height * 0.7, alignment: .bottom)
+                        VStack {
+                            Spacer()
+                            Text(details.title)
+                                .font(Font.movieTitle)
+                                .multilineTextAlignment(.center)
+
+                            Spacer()
+                        }
+                    }
+
+                    .ignoresSafeArea()
+                }
+            }
+//            Spacer()
 
 
         }
@@ -30,9 +53,11 @@ struct MovieDetailsView: View {
 }
 
 struct DetailsView_Previews: PreviewProvider {
+    @Namespace static var namespace
+    static var image = Image("default", bundle: .main)
     static var previews: some View {
-//        let movie = MovieDetails(adult: <#T##Bool#>, backdropPath: <#T##String#>, budget: <#T##Int#>, genres: <#T##[Genre]#>, homepage: <#T##String#>, id: <#T##Int#>, imdbID: <#T##String#>, originalLanguage: <#T##String#>, originalTitle: <#T##String#>, overview: <#T##String#>, popularity: <#T##Double#>, posterPath: <#T##String?#>, productionCompanies: <#T##[ProductionCompany]#>, productionCountries: <#T##[ProductionCountry]#>, releaseDate: <#T##String#>, revenue: <#T##Int#>, runtime: <#T##Int#>, spokenLanguages: <#T##[SpokenLanguage]#>, status: <#T##String#>, tagline: <#T##String#>, title: <#T##String#>, video: <#T##Bool#>, voteAverage: <#T##Double#>, voteCount: <#T##Int#>)
-//        MovieDetailsView(details: movie)
-        Text("1")
+        let movie = MovieDetails(adult: true, backdropPath: "/", budget: 1000, genres: [Genre(id: 1, name: "action")], homepage: "", id: 1, imdbID: "1", originalLanguage: "English", originalTitle: "Spider-man", overview: "", popularity: 4, posterPath: "", productionCompanies: [], productionCountries: [], releaseDate: "", revenue: 4141, runtime: 114, spokenLanguages: [], status: "", tagline: "", title: "Spider-Man", video: false, voteAverage: 22, voteCount: 22)
+        MovieDetailsView(details: movie, namespace: namespace, image: image)
+
     }
 }

@@ -6,11 +6,13 @@
 //
 
 import SwiftUI
-
+import DesignSystem
 @main
 struct MHMoviesDBApp: App {
+
     var body: some Scene {
-        WindowGroup {
+        FontLoader.loadFonts()
+        return WindowGroup {
             PopularMoviesView()
         }
     }
