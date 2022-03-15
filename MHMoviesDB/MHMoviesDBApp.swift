@@ -13,7 +13,7 @@ struct MHMoviesDBApp: App {
     var body: some Scene {
         FontLoader.loadFonts()
         return WindowGroup {
-            PopularMoviesView()
+            StartFeedView()
         }
     }
 }

@@ -31,8 +31,9 @@ struct MovieDetailsView: View {
                 GeometryReader { geo in
                     ZStack(alignment: .bottom) {
                         CurvedSideRectangle()
-
-                            .foregroundColor(Color.Movies.background)
+                            .fill(
+                                Color.Movies.background
+                            )
                             .frame(height: geo.size.height * 0.7, alignment: .bottom)
                         VStack {
                             Spacer()
