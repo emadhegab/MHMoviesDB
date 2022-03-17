@@ -16,37 +16,38 @@ struct PopularMoviesView: View {
 
     var body: some View {
         ZStack {
-            VStack {
+            if !showDetails {
+                VStack {
+                    HStack {
+                        Text("Popular")
+                            .font(Font.itemCaption)
+                            .padding()
+                        Spacer()
+                        Image(systemName: "arrow.forward")
+                            .font(Font.title.weight(.medium))
+                            .padding()
 
-                HStack {
-                    Text("Popular")
-                        .font(Font.itemCaption)
-                        .padding()
-                    Spacer()
-                    Image(systemName: "arrow.forward")
-                        .font(Font.title.weight(.medium))
-                        .padding()
-
-                }
-                ScrollView(.horizontal) {
-                    if let movies = viewModel.popularMovies {
-                        HStack {
-                            ForEach(movies.results, id: \.id) { movie in
-                                MovieCell(movie: movie, namespace: namespace, image: viewModel.imageDictionary["\(movie.id)"]!)
-                                    .padding(6)
-                                    .frame(width: 200, height: 300)
-                                    .onTapGesture {
-                                        selectedMovie = movie
-                                        withAnimation(.easeIn) {
-                                            showDetails.toggle()
+                    }
+                    ScrollView(.horizontal) {
+                        if let movies = viewModel.popularMovies {
+                            HStack {
+                                ForEach(movies.results, id: \.id) { movie in
+                                    MovieCell(movie: movie, namespace: namespace, image: viewModel.imageDictionary["\(movie.id)"]!)
+                                        .padding(6)
+                                        .frame(width: 200, height: 300)
+                                        .onTapGesture {
+                                            selectedMovie = movie
+                                            withAnimation(.easeIn) {
+                                                showDetails.toggle()
+                                            }
                                         }
-                                    }
+                                }
                             }
                         }
                     }
-                }
-                .onAppear {
-                    viewModel.getMovies()
+                    .onAppear {
+                        viewModel.getMovies()
+                    }
                 }
             }
             if showDetails, let movie = selectedMovie, let details = movie.details {
