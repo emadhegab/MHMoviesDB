@@ -37,7 +37,7 @@ struct PopularMoviesView: View {
                                         .frame(width: 200, height: 300)
                                         .onTapGesture {
                                             selectedMovie = movie
-                                            withAnimation(.easeIn) {
+                                            withAnimation(Animation.interpolatingSpring(stiffness: 270, damping: 15)) {
                                                 showDetails.toggle()
                                             }
                                         }
@@ -53,7 +53,7 @@ struct PopularMoviesView: View {
             if showDetails, let movie = selectedMovie, let details = movie.details {
                 MovieDetailsView(details: details, namespace: namespace, image: viewModel.imageDictionary["\(movie.id)"]!)
                     .onTapGesture {
-                        withAnimation(.easeOut) {
+                        withAnimation(Animation.interpolatingSpring(stiffness: 270, damping: 15)) {
                             showDetails.toggle()
                         }
                     }
