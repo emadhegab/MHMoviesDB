@@ -9,10 +9,13 @@ import SwiftUI
 import DesignSystem
 
 struct PopularMoviesView: View {
+
     @Namespace var namespace
     @ObservedObject var viewModel = ViewModel()
     @State var showDetails: Bool = false
     @State var selectedMovie: Movie?
+    @State var ownTop = CGFloat.zero
+    var geo: GeometryProxy?
 
     var body: some View {
         ZStack {
@@ -36,10 +39,12 @@ struct PopularMoviesView: View {
                                         .padding(6)
                                         .frame(width: 200, height: 300)
                                         .onTapGesture {
-                                            selectedMovie = movie
+                                            self.selectedMovie = movie
+
                                             withAnimation(Animation.interpolatingSpring(stiffness: 270, damping: 15)) {
                                                 showDetails.toggle()
                                             }
+
                                         }
                                 }
                             }
@@ -49,9 +54,32 @@ struct PopularMoviesView: View {
                         viewModel.getMovies()
                     }
                 }
+
+
             }
+
             if showDetails, let movie = selectedMovie, let details = movie.details {
-                MovieDetailsView(details: details, namespace: namespace, image: viewModel.imageDictionary["\(movie.id)"]!)
+
+                GeometryReader { geo in Color.clear.onAppear {
+                    ownTop = geo.frame(in: .global).minY
+                    print(ownTop)
+                }}
+                .overlay (
+                    MovieDetailsView(details: details, namespace: namespace, image: viewModel.imageDictionary["\(movie.id)"]!)
+
+                        .frame(width: geo!.size.width, height: geo!.size.height)
+                        .background(.gray)
+                        .position(x: geo!.frame(in: .global).midX, y: geo!.frame(in: .global).midY - ownTop)
+
+                        .onTapGesture {
+                            withAnimation(Animation.interpolatingSpring(stiffness: 270, damping: 15)) {
+                                showDetails.toggle()
+                            }
+                        }
+                )
+
+
+                
                     .onTapGesture {
                         withAnimation(Animation.interpolatingSpring(stiffness: 270, damping: 15)) {
                             showDetails.toggle()
@@ -66,6 +94,6 @@ struct PopularMovies_Previews: PreviewProvider {
     static var previews: some View {
         let viewModel = PopularMoviesView.ViewModel()
 
-        return PopularMoviesView(viewModel: viewModel)
+        return PopularMoviesView(viewModel: viewModel, geo: nil)
     }
 }

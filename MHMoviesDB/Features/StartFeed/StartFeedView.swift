@@ -19,21 +19,23 @@ struct StartFeedView: View {
                                  ShortCut(image: "topRated", title: "Top Rated")
                                  ]
     var body: some View {
-        ScrollView(.vertical) {
-            ScrollView(.horizontal) {
+        GeometryReader { geo in
+            ScrollView(.vertical) {
+                ScrollView(.horizontal) {
 
-                HStack {
-                    ForEach(shortcuts, id: \.title) { shortcut in
-                        ShortcutView(image: shortcut.image,
-                                     title: shortcut.title)
-                            .padding(6)
-                            .frame(width: 250, height: 150)
+                    HStack {
+                        ForEach(shortcuts, id: \.title) { shortcut in
+                            ShortcutView(image: shortcut.image,
+                                         title: shortcut.title)
+                                .padding(6)
+                                .frame(width: 250, height: 150)
+                        }
                     }
+
                 }
 
+                PopularMoviesView(geo: geo)
             }
-
-            PopularMoviesView()
         }
     }
 }
